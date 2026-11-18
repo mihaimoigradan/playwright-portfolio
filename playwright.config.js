@@ -26,6 +26,7 @@ export default defineConfig({
   use: {
     baseURL: 'https://www.saucedemo.com/',
     trace: 'on',
+    testIdAttribute: 'data-test'
   },
 
   /* Configure projects for major browsers */
