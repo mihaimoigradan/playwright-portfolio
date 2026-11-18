@@ -19,3 +19,12 @@ test('Login attempt with an incorrect password', async ({page}) => {
     await expect(page.getByRole('alert'))
         .toContainText('Epic sadface: Username and password do not match any user in this service');
 })
+
+test('Login attempt with a lockout user', async ({page}) => {
+        await page.goto("/");
+    await page.getByLabel('Username').fill('locked_out_user');
+    await page.getByLabel('Password').fill('secret_sauce');
+    await page.getByRole('button', {name: 'Login'}).click();
+    await expect(page.getByRole('alert'))
+        .toContainText('Epic sadface: Sorry, this user has been locked out.');
+})
