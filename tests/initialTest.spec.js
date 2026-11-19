@@ -1,28 +1,34 @@
-const {test,expect} = require('@playwright/test')
+const {test,expect} = require('@playwright/test');
+const { LoginPage } = require('../pages/LoginPage');
+
+const users = {
+  valid:   { username: 'standard_user', password: 'secret_sauce' },
+  invalid: { username: 'wrong_user', password: 'wrongpass' },
+  locked:  { username: 'locked_out_user', password: 'secret_sauce' },
+};
+
+let loginPage;
+
+test.beforeEach(async ({page}) => {
+    loginPage = new LoginPage(page);
+    await page.goto("/");
+})
 
 test('Login with a valid user and see the inventory', async ({page}) => {
-    await page.goto("/");
-    await page.getByLabel('Username').fill('standard_user');
-    await page.getByLabel('Password').fill('secret_sauce');
-    await page.getByRole('button', {name: 'Login'}).click();
-
-    await expect (page).toHaveURL('/inventory.html')
+    await loginPage.login(users.valid.username, users.valid.password)
+    await expect(page).toHaveURL('/inventory.html')
     await expect(page.getByTestId('inventory-list')).toBeVisible();
 
 })
 
-test('Login attempt with an incorrect password', async ({page}) => {
-    await page.goto("/");
-    
+test('Login attempt with an invalid user', async ({page}) => {
+    await loginPage.login(users.invalid.username, users.invalid.password)
     await expect(page.getByRole('alert'))
         .toContainText('Epic sadface: Username and password do not match any user in this service');
 })
 
 test('Login attempt with a lockout user', async ({page}) => {
-        await page.goto("/");
-    await page.getByLabel('Username').fill('locked_out_user');
-    await page.getByLabel('Password').fill('secret_sauce');
-    await page.getByRole('button', {name: 'Login'}).click();
+    await loginPage.login(users.locked.username, users.locked.password)
     await expect(page.getByRole('alert'))
         .toContainText('Epic sadface: Sorry, this user has been locked out.');
 })
