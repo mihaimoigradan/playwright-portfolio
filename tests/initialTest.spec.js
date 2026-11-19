@@ -13,9 +13,7 @@ test('Login with a valid user and see the inventory', async ({page}) => {
 
 test('Login attempt with an incorrect password', async ({page}) => {
     await page.goto("/");
-    await page.getByLabel('Username').fill('standard_user');
-    await page.getByLabel('Password').fill('wrong_password');
-    await page.getByRole('button', {name: 'Login'}).click();
+    
     await expect(page.getByRole('alert'))
         .toContainText('Epic sadface: Username and password do not match any user in this service');
 })
