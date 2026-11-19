@@ -2,9 +2,9 @@ const {test,expect} = require('@playwright/test');
 const { LoginPage } = require('../pages/LoginPage');
 
 const users = {
-  valid:   { username: 'standard_user', password: 'secret_sauce' },
-  invalid: { username: 'wrong_user', password: 'wrongpass' },
-  locked:  { username: 'locked_out_user', password: 'secret_sauce' },
+  valid:   { username: process.env.STANDARD_USER, password: process.env.PASSWORD },
+  invalid: { username: process.env.INVALID_USER, password: process.env.PASSWORD },
+  locked:  { username: process.env.LOCKED_USER, password: process.env.PASSWORD },
 };
 
 let loginPage;
