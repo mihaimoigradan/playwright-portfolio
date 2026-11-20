@@ -23,12 +23,12 @@ test('Login with a valid user and see the inventory', async ({page}) => {
 
 test('Login attempt with an invalid user', async ({page}) => {
     await loginPage.login(users.invalid.username, users.invalid.password)
-    await expect(page.getByRole('alert'))
+    await expect(loginPage.alert)
         .toContainText('Epic sadface: Username and password do not match any user in this service');
 })
 
 test('Login attempt with a lockout user', async ({page}) => {
     await loginPage.login(users.locked.username, users.locked.password)
-    await expect(page.getByRole('alert'))
+    await expect(loginPage.alert)
         .toContainText('Epic sadface: Sorry, this user has been locked out.');
 })
