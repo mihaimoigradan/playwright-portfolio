@@ -11,7 +11,7 @@ let loginPage;
 
 test.beforeEach(async ({page}) => {
     loginPage = new LoginPage(page);
-    await page.goto("/");
+    await loginPage.goto();
 })
 
 test('Login with a valid user and see the inventory', async ({page}) => {

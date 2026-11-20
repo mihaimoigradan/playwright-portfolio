@@ -7,6 +7,10 @@ class LoginPage{
         this.alert = page.getByRole('alert')
     }
 
+    async goto() {
+        await this.page.goto('/');
+    }
+
     async login(email, password){
         await this.username.fill(email);
         await this.password.fill(password);
