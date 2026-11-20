@@ -16,7 +16,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   timeout: 10000,
   expect: {
-    timeout: 5000
+    timeout: 5000,
   },
   testDir: './tests',
   fullyParallel: true,
@@ -27,7 +27,7 @@ export default defineConfig({
   use: {
     baseURL: 'https://www.saucedemo.com/',
     trace: 'on',
-    testIdAttribute: 'data-test'
+    testIdAttribute: 'data-test',
   },
 
   /* Configure projects for major browsers */
@@ -46,6 +46,5 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-  ]
+  ],
 });
-
