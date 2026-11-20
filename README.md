@@ -17,13 +17,19 @@ npm ci
 npx playwright install --with-deps
 ```
 
-Create a `.env` file in the project root (it is gitignored):
+Copy `.env.example` to `.env` in the project root (`.env` is gitignored) and fill in the values:
+
+```bash
+cp .env.example .env
+```
+
+Variables used by the tests:
 
 ```
-STANDARD_USER=standard_user
-LOCKED_USER=locked_out_user
-INVALID_USER=wrong_user
-PASSWORD=secret_sauce
+STANDARD_USER=<standard user name>
+LOCKED_USER=<locked out user name>
+INVALID_USER=<any non-existent user name>
+PASSWORD=<password>
 ```
 
 ## Run the tests
