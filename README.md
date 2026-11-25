@@ -1,6 +1,6 @@
 # Playwright Portfolio
 
-End-to-end tests written with [Playwright](https://playwright.dev) (JavaScript) against the demo app [Swag Labs](https://www.saucedemo.com).
+End-to-end tests written with [Playwright](https://playwright.dev) (JavaScript).
 
 > Work in progress. This README is temporary.
 

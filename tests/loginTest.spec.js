@@ -1,6 +1,4 @@
-const { test, expect } = require('@playwright/test');
-const { LoginPage } = require('../pages/LoginPage');
-const { DashboardPage } = require('../pages/DashboardPage');
+const { test, expect } = require('../fixtures/pages');
 
 const users = {
   valid: {
@@ -14,29 +12,27 @@ const users = {
   locked: { username: process.env.LOCKED_USER, password: process.env.PASSWORD },
 };
 
-let loginPage;
-let dashboardPage;
-
-test.beforeEach(async ({ page }) => {
-  loginPage = new LoginPage(page);
-  dashboardPage = new DashboardPage(page);
+test.beforeEach(async ({ loginPage }) => {
   await loginPage.goto();
 });
 
-test('Login with a valid user and see the inventory', async () => {
+test('Login with a valid user and see the inventory', async ({
+  loginPage,
+  dashboardPage,
+}) => {
   await loginPage.login(users.valid.username, users.valid.password);
   await expect(dashboardPage.page).toHaveURL(dashboardPage.path);
   await expect(dashboardPage.inventoryList).toBeVisible();
 });
 
-test('Login attempt with an invalid user', async () => {
+test('Login attempt with an invalid user', async ({ loginPage }) => {
   await loginPage.login(users.invalid.username, users.invalid.password);
   await expect(loginPage.alert).toContainText(
     'Epic sadface: Username and password do not match any user in this service',
   );
 });
 
-test('Login attempt with a lockout user', async () => {
+test('Login attempt with a lockout user', async ({ loginPage }) => {
   await loginPage.login(users.locked.username, users.locked.password);
   await expect(loginPage.alert).toContainText(
     'Epic sadface: Sorry, this user has been locked out.',
