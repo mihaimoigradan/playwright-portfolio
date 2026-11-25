@@ -5,6 +5,7 @@ class DashboardPage {
     this.inventoryList = page.getByTestId('inventory-list');
     this.inventoryItems = page.getByTestId('inventory-item');
     this.productNames = page.getByTestId('inventory-item-name');
+    this.cartBadge = page.getByTestId('shopping-cart-badge');
   }
 
   getItem(name) {

@@ -9,7 +9,10 @@ const users = {
     username: process.env.INVALID_USER,
     password: process.env.PASSWORD,
   },
-  locked: { username: process.env.LOCKED_USER, password: process.env.PASSWORD },
+  locked: {
+    username: process.env.LOCKED_USER,
+    password: process.env.PASSWORD,
+  },
 };
 
 test.beforeEach(async ({ loginPage }) => {
