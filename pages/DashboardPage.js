@@ -8,6 +8,10 @@ class DashboardPage {
     this.cartBadge = page.getByTestId('shopping-cart-badge');
   }
 
+  async goto() {
+    await this.page.goto(this.path);
+  }
+
   getItem(name) {
     return this.inventoryItems.filter({ hasText: name });
   }

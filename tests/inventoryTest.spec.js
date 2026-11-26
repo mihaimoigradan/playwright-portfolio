@@ -2,9 +2,9 @@ const { test, expect } = require('../fixtures/pages');
 
 const product = 'Sauce Labs Backpack';
 
-test.beforeEach(async ({ loginPage }) => {
-  await loginPage.goto();
-  await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD);
+// Already logged in via the saved session (see tests/auth.setup.js)
+test.beforeEach(async ({ dashboardPage }) => {
+  await dashboardPage.goto();
 });
 
 test('Add a product to the cart from the inventory', async ({

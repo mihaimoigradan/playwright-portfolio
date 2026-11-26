@@ -15,6 +15,9 @@ const users = {
   },
 };
 
+// Login tests must start logged out, so don't load the saved session
+test.use({ storageState: { cookies: [], origins: [] } });
+
 test.beforeEach(async ({ loginPage }) => {
   await loginPage.goto();
 });
