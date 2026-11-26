@@ -11,9 +11,9 @@ End-to-end tests written with [Playwright](https://playwright.dev) (JavaScript).
 | AUTH-01 | Authentication | Login with a valid user shows the inventory               | Positive | High     | ✅     |
 | AUTH-02 | Authentication | Login with an invalid user shows an error                 | Negative | High     | ✅     |
 | AUTH-03 | Authentication | Login with a locked-out user shows an error               | Negative | High     | ✅     |
-| INV-01  | Inventory      | Add a product to the cart from the inventory              | Positive | High     | ⬜     |
-| INV-02  | Inventory      | Remove a product from the cart from the inventory         | Positive | Medium   | ⬜     |
-| INV-03  | Inventory      | Open a product's details page                             | Positive | Medium   | ⬜     |
+| INV-01  | Inventory      | Add a product to the cart from the inventory              | Positive | High     | ✅     |
+| INV-02  | Inventory      | Remove a product from the cart from the inventory         | Positive | Medium   | ✅     |
+| INV-03  | Inventory      | Open a product's details page                             | Positive | Medium   | ✅     |
 | PROD-01 | Product        | Product details show name, description and price          | Positive | Medium   | ⬜     |
 | PROD-02 | Product        | Add to cart / Remove from the product details page        | Positive | Medium   | ⬜     |
 | PROD-03 | Product        | Back to products returns to the inventory                 | Positive | Low      | ⬜     |
