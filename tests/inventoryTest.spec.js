@@ -37,6 +37,6 @@ test("Open a product's details page", async ({
   productPage,
 }) => {
   await dashboardPage.openProduct(product);
-
+  await expect(productPage.page).toHaveURL(/inventory-item\.html/);
   await expect(productPage.name).toHaveText(product);
 });
