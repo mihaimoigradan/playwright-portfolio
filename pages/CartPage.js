@@ -8,6 +8,14 @@ class CartPage {
     this.continueShoppingButton = page.getByTestId('continue-shopping');
     this.checkoutButton = page.getByTestId('checkout');
   }
+
+  getItem(name) {
+    return this.cartItems.filter({ hasText: name });
+  }
+
+  async continueShopping() {
+    await this.continueShoppingButton.click();
+  }
 }
 
 module.exports = { CartPage };

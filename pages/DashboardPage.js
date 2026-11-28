@@ -6,6 +6,7 @@ class DashboardPage {
     this.inventoryItems = page.getByTestId('inventory-item');
     this.productNames = page.getByTestId('inventory-item-name');
     this.cartBadge = page.getByTestId('shopping-cart-badge');
+    this.cartLink = page.getByTestId('shopping-cart-link');
   }
 
   async goto() {
@@ -28,6 +29,12 @@ class DashboardPage {
 
   async openProduct(name) {
     await this.getItem(name).getByTestId('inventory-item-name').click();
+  }
+
+  async openCart() {
+    await this.cartLink.click();
+    // Wait for the cart page: it reuses test IDs from the inventory page
+    await this.page.waitForURL(/cart\.html/);
   }
 }
 

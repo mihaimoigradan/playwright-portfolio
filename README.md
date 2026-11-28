@@ -17,8 +17,8 @@ End-to-end tests written with [Playwright](https://playwright.dev) (JavaScript).
 | PROD-01 | Product        | Product details show name, description and price          | Positive | Medium   | ✅     |
 | PROD-02 | Product        | Add to cart / Remove from the product details page        | Positive | Medium   | ✅     |
 | PROD-03 | Product        | Back to products returns to the inventory                 | Positive | Low      | ✅     |
-| CART-01 | Cart           | Added products appear in the cart with correct name/price | Positive | High     | ⬜     |
-| CART-02 | Cart           | Continue shopping returns to the inventory                | Positive | Low      | ⬜     |
+| CART-01 | Cart           | Added products appear in the cart with correct name/price | Positive | High     | ✅     |
+| CART-02 | Cart           | Continue shopping returns to the inventory                | Positive | Low      | ✅     |
 | CHK-01  | Checkout       | Complete checkout end-to-end shows confirmation           | Positive | High     | ⬜     |
 | CHK-02  | Checkout       | Continue with empty information fields shows an error     | Negative | High     | ⬜     |
 | CHK-03  | Checkout       | Overview total equals item total + tax                    | Positive | High     | ⬜     |
