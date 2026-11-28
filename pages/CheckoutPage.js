@@ -21,6 +21,27 @@ class CheckoutPage {
     // Complete
     this.completeHeader = page.getByTestId('complete-header');
   }
+
+  async fillInformation(firstName, lastName, postalCode) {
+    await this.firstName.fill(firstName);
+    await this.lastName.fill(lastName);
+    await this.postalCode.fill(postalCode);
+  }
+
+  // No URL wait here: with invalid info we expect to stay on step one
+  async continueCheckout() {
+    await this.continueButton.click();
+  }
+
+  async finish() {
+    await this.finishButton.click();
+  }
+
+  // Turns a label like "Tax: $2.40" into the number 2.4
+  async getAmount(locator) {
+    const text = await locator.textContent();
+    return parseFloat(text.replace(/[^0-9.]/g, ''));
+  }
 }
 
 module.exports = { CheckoutPage };

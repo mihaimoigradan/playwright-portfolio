@@ -16,6 +16,11 @@ class CartPage {
   async continueShopping() {
     await this.continueShoppingButton.click();
   }
+
+  async checkout() {
+    await this.checkoutButton.click();
+    await this.page.waitForURL(/checkout-step-one\.html/);
+  }
 }
 
 module.exports = { CartPage };
