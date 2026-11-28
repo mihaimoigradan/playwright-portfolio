@@ -7,7 +7,7 @@ test.beforeEach(async ({ dashboardPage }) => {
   await dashboardPage.goto();
 });
 
-test('Add a product to the cart from the inventory', async ({
+test('INV-01 Add a product to the cart from the inventory', { tag: '@smoke' }, async ({
   dashboardPage,
 }) => {
   await dashboardPage.addToCart(product);
@@ -18,7 +18,7 @@ test('Add a product to the cart from the inventory', async ({
   await expect(dashboardPage.cartBadge).toHaveText('1');
 });
 
-test('Remove a product from the cart from the inventory', async ({
+test('INV-02 Remove a product from the cart from the inventory', async ({
   dashboardPage,
 }) => {
   await dashboardPage.addToCart(product);
@@ -32,7 +32,7 @@ test('Remove a product from the cart from the inventory', async ({
   await expect(dashboardPage.cartBadge).not.toBeVisible();
 });
 
-test("Open a product's details page", async ({
+test("INV-03 Open a product's details page", async ({
   dashboardPage,
   productPage,
 }) => {

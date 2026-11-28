@@ -22,7 +22,7 @@ test.beforeEach(async ({ loginPage }) => {
   await loginPage.goto();
 });
 
-test('Login with a valid user and see the inventory', async ({
+test('AUTH-01 Login with a valid user shows the inventory', { tag: '@smoke' }, async ({
   loginPage,
   dashboardPage,
 }) => {
@@ -31,14 +31,14 @@ test('Login with a valid user and see the inventory', async ({
   await expect(dashboardPage.inventoryList).toBeVisible();
 });
 
-test('Login attempt with an invalid user', async ({ loginPage }) => {
+test('AUTH-02 Login with an invalid user shows an error', { tag: '@smoke' }, async ({ loginPage }) => {
   await loginPage.login(users.invalid.username, users.invalid.password);
   await expect(loginPage.alert).toContainText(
     'Epic sadface: Username and password do not match any user in this service',
   );
 });
 
-test('Login attempt with a lockout user', async ({ loginPage }) => {
+test('AUTH-03 Login with a locked-out user shows an error', { tag: '@smoke' }, async ({ loginPage }) => {
   await loginPage.login(users.locked.username, users.locked.password);
   await expect(loginPage.alert).toContainText(
     'Epic sadface: Sorry, this user has been locked out.',

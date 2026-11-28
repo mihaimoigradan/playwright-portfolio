@@ -12,7 +12,7 @@ test.beforeEach(async ({ dashboardPage, productPage }) => {
   await expect(productPage.page).toHaveURL(/inventory-item\.html/);
 });
 
-test('Product details show name, description and price', async ({
+test('PROD-01 Product details show name, description and price', async ({
   productPage,
 }) => {
   await expect(productPage.name).toHaveText(product);
@@ -24,7 +24,7 @@ test('Product details show name, description and price', async ({
   await expect(productPage.price).not.toBeEmpty();
 });
 
-test('Add to cart / Remove from the product details page', async ({
+test('PROD-02 Add to cart / Remove from the product details page', async ({
   productPage,
   dashboardPage,
 }) => {
@@ -39,7 +39,7 @@ test('Add to cart / Remove from the product details page', async ({
   await expect(dashboardPage.cartBadge).not.toBeVisible();
 });
 
-test('Back to products returns to the inventory', async ({
+test('PROD-03 Back to products returns to the inventory', async ({
   productPage,
   dashboardPage,
 }) => {

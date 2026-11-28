@@ -7,7 +7,7 @@ test.beforeEach(async ({ dashboardPage }) => {
   await dashboardPage.goto();
 });
 
-test('Added products appear in the cart with correct name/price', async ({
+test('CART-01 Added products appear in the cart with correct name/price', { tag: '@smoke' }, async ({
   dashboardPage,
   cartPage,
 }) => {
@@ -28,7 +28,7 @@ test('Added products appear in the cart with correct name/price', async ({
   );
 });
 
-test('Continue shopping returns to the inventory', async ({
+test('CART-02 Continue shopping returns to the inventory', async ({
   dashboardPage,
   cartPage,
 }) => {

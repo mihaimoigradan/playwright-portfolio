@@ -12,7 +12,7 @@ test.beforeEach(async ({ dashboardPage, cartPage }) => {
   await cartPage.checkout();
 });
 
-test('Complete checkout end-to-end shows confirmation', async ({
+test('CHK-01 Complete checkout end-to-end shows confirmation', { tag: '@smoke' }, async ({
   checkoutPage,
 }) => {
   await checkoutPage.fillInformation(
@@ -31,7 +31,7 @@ test('Complete checkout end-to-end shows confirmation', async ({
   );
 });
 
-test('Continue with empty information fields shows an error', async ({
+test('CHK-02 Continue with empty information fields shows an error', { tag: '@smoke' }, async ({
   checkoutPage,
 }) => {
   await checkoutPage.continueCheckout();
@@ -42,7 +42,7 @@ test('Continue with empty information fields shows an error', async ({
   await expect(checkoutPage.page).toHaveURL(/checkout-step-one\.html/);
 });
 
-test('Overview total equals item total + tax', async ({ checkoutPage }) => {
+test('CHK-03 Overview total equals item total + tax', { tag: '@smoke' }, async ({ checkoutPage }) => {
   await checkoutPage.fillInformation(
     customer.firstName,
     customer.lastName,
