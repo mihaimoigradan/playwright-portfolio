@@ -10,21 +10,17 @@ End-to-end UI tests for the [Sauce Demo](https://www.saucedemo.com) shop, writte
 The suite covers the main shopping flow (login, inventory, product details, cart and checkout)
 and runs on **Chromium, Firefox and WebKit**, locally and in GitHub Actions.
 
-## ✨ Key Features
+## 🛠️ How It's Built
 
-| Feature                  | Description                                                        |
-| ------------------------ | ------------------------------------------------------------------ |
-| **Page Object Model**    | Locators and actions in `pages/`; assertions only in tests         |
-| **Custom fixtures**      | Page objects provided to tests via `fixtures/pages.js`             |
-| **Session reuse**        | Log in once in a setup project, reuse `storageState` in every test |
-| **Multi-browser**        | Chromium, Firefox and WebKit                                       |
-| **Test isolation**       | Fresh browser context per test, no shared state or run order       |
-| **Parallel execution**   | Fully parallel locally; 1 worker + 2 retries on CI for stability   |
-| **Stable navigation**    | Page-changing actions wait for the new URL before continuing       |
-| **Business-rule checks** | Cart price vs inventory, total = item total + tax                  |
-| **Traceability & tags**  | Scenario IDs in test titles, `@smoke` for high-priority runs       |
-| **CI/CD**                | GitHub Actions on every push/PR; credentials from GitHub Secrets   |
-| **Reporting**            | HTML report with a trace for every test, uploaded as a CI artifact |
+| Building block         | In this project                                                      |
+| ---------------------- | -------------------------------------------------------------------- |
+| **Page Object Model**  | Page classes in `pages/` hold locators and actions; tests hold checks |
+| **Custom fixtures**    | `fixtures/pages.js` hands each test the page objects it needs        |
+| **Session reuse**      | A setup project logs in once; every test starts from `storageState`  |
+| **Test isolation**     | Each test gets a fresh browser context: no shared state, any order   |
+| **Parallel execution** | Fully parallel locally; on CI, 1 worker with 2 retries for stability |
+| **CI/CD**              | GitHub Actions on every push and PR, credentials in GitHub Secrets   |
+| **Reporting**          | HTML report with a trace per test, saved as a CI artifact            |
 
 ## 🧪 Test Coverage
 
