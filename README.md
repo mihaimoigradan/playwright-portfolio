@@ -1,4 +1,4 @@
-# Playwright Portfolio
+# Playwright Test Automation Framework
 
 [![Playwright Tests](https://github.com/mihaimoigradan/playwright-portfolio/actions/workflows/playwright.yml/badge.svg)](https://github.com/mihaimoigradan/playwright-portfolio/actions/workflows/playwright.yml)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
