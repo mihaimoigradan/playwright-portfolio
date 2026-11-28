@@ -9,6 +9,18 @@ class ProductPage {
     this.removeButton = page.getByRole('button', { name: 'Remove' });
     this.backButton = page.getByTestId('back-to-products');
   }
+
+  async addToCart() {
+    await this.addToCartButton.click();
+  }
+
+  async removeFromCart() {
+    await this.removeButton.click();
+  }
+
+  async backToProducts() {
+    await this.backButton.click();
+  }
 }
 
 module.exports = { ProductPage };
